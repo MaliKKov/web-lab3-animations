@@ -1,0 +1,1645 @@
+
+/* Анимация №1 — Котик */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.cat-page {
+    background: #101010;
+    color: white;
+    min-height: 100vh;
+}
+
+.cat-scene {
+    text-align: center;
+    padding: 30px 15px;
+}
+
+    .cat-scene h1 {
+        font-size: 26px;
+        margin-bottom: 30px;
+    }
+
+.cat-art {
+    position: relative;
+    width: 440px;
+    height: 465px;
+    max-width: 100%;
+    margin: 0 auto;
+    background: #191919;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Уши */
+
+.cat-ear {
+    position: absolute;
+    top: 42px;
+    width: 92px;
+    height: 190px;
+    background: white;
+    border-radius: 60% 60% 15% 15%;
+    z-index: 1;
+}
+
+.cat-ear-left {
+    left: 79px;
+    transform: rotate(-17deg);
+}
+
+.cat-ear-right {
+    right: 79px;
+    transform: rotate(17deg);
+}
+
+.cat-ear-inner {
+    position: absolute;
+    bottom: -15px;
+    left: 7px;
+    width: 100%;
+    height: 70%;
+    background: #191919;
+    border-radius: 70% 20% 0 0;
+}
+
+/* Голова */
+
+.cat-face {
+    position: absolute;
+    top: 155px;
+    left: 55px;
+    width: 330px;
+    height: 270px;
+    background: #191919;
+    border-radius: 48% 48% 35% 35%;
+    z-index: 2;
+}
+
+/* Глаза */
+
+.cat-eye {
+    position: absolute;
+    top: 60px;
+    width: 94px;
+    height: 80px;
+    border-radius: 50%;
+    background: white;
+    overflow: hidden;
+    animation: cat-blink 6s infinite;
+}
+
+.cat-eye-left {
+    left: 22px;
+}
+
+.cat-eye-right {
+    right: 22px;
+}
+
+.cat-pupil {
+    position: absolute;
+    top: 20px;
+    left: 45px;
+    width: 20px;
+    height: 42px;
+    border-radius: 50%;
+    background: #191919;
+    animation: cat-look 6s infinite;
+}
+
+    .cat-pupil::after {
+        content: "";
+        position: absolute;
+        top: 10px;
+        right: 3px;
+        width: 6px;
+        height: 9px;
+        border-radius: 50%;
+        background: white;
+    }
+
+/* Нос */
+
+.cat-nose {
+    position: absolute;
+    top: 130px;
+    left: 50%;
+    width: 30px;
+    height: 16px;
+    background: white;
+    border-radius: 50% 50% 65% 65%;
+    transform: translateX(-50%);
+}
+
+/* Рот */
+
+.cat-mouth {
+    position: absolute;
+    top: 190px;
+    left: 50%;
+    width: 65px;
+    height: 25px;
+    background: white;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: cat-mouth-move 6s infinite;
+}
+
+/* Моргание */
+
+@keyframes cat-blink {
+    0%, 25%, 29%, 60%, 64%, 100% {
+        transform: scaleY(1);
+    }
+
+    27%, 62% {
+        transform: scaleY(0.06);
+    }
+}
+
+/* Движение зрачков */
+
+@keyframes cat-look {
+    0%, 15%, 75%, 100% {
+        transform: translateX(0);
+    }
+
+    25%, 40% {
+        transform: translateX(-20px);
+    }
+
+    50%, 65% {
+        transform: translateX(15px);
+    }
+}
+
+/* Движение рта */
+
+@keyframes cat-mouth-move {
+    0%, 20%, 55%, 100% {
+        transform: translateX(-50%) scaleY(1);
+    }
+
+    30%, 42% {
+        transform: translateX(-50%) scaleY(0.3);
+    }
+
+    70%, 85% {
+        transform: translateX(-50%) scaleY(1.5);
+    }
+}
+
+.cat-hint {
+    color: #bbb;
+    margin-top: 25px;
+}
+
+/* Адаптация под небольшие экраны */
+
+@media (max-width: 480px) {
+    .cat-art {
+        transform: scale(0.7);
+        transform-origin: top center;
+        margin-bottom: -120px;
+    }
+}
+
+/* Уточнение формы ушей */
+
+.cat-ear {
+    top: 40px;
+    width: 75px;
+    height: 185px;
+    border-radius: 65% 65% 15% 15%;
+}
+
+.cat-ear-left {
+    left: 85px;
+    transform: rotate(-12deg);
+}
+
+.cat-ear-right {
+    right: 85px;
+    transform: rotate(12deg);
+}
+
+.cat-ear-inner {
+    bottom: -15px;
+    left: 12px;
+    width: 100%;
+    height: 65%;
+    border-radius: 75% 25% 0 0;
+}
+
+
+/* Анимация №2 — Свечи */
+.candles-page {
+    background: #101010;
+    color: #fff;
+    min-height: 100vh;
+}
+
+.candles-main {
+    text-align: center;
+    padding: 30px 15px;
+}
+
+    .candles-main h1 {
+        margin: 0 0 24px;
+        font: 700 26px Arial, sans-serif;
+    }
+
+.candles-demo {
+    box-sizing: border-box;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+    .candles-demo *, .candles-demo *::before, .candles-demo *::after {
+        box-sizing: border-box;
+    }
+
+    .candles-demo .stage {
+        height: 480px;
+        min-height: 0;
+        border-radius: 6px;
+    }
+
+.candles-note {
+    color: #bbb;
+    margin: 20px 0;
+}
+
+
+/*  переменные  */
+
+
+.candles-demo {
+    --line: #6b4a6e; /* цвет контуров и земли */
+    --flame: #ffa500;
+    --hot: #ff6347; /* красный "перегрев" */
+    --dur: 3s; /* длина одного цикла */
+}
+
+
+
+
+
+
+
+
+
+
+
+    /*  сцена  */
+
+
+    .candles-demo .stage {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        min-height: 402px;
+        background: #fff;
+        animation: cd-bg var(--dur) infinite;
+    }
+
+
+
+    .candles-demo .ground {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: calc(50% - 150px); /* линия земли */
+        height: 8px;
+        background: var(--line);
+        border-radius: 4px;
+        box-shadow: 0 4px 6px rgba(107, 74, 110, .25);
+    }
+
+
+
+    /* scene = нулевая точка: центр по X, верх земли по Y */
+
+
+    .candles-demo .scene {
+        position: absolute;
+        left: 50%;
+        bottom: calc(50% - 142px);
+        width: 0;
+        height: 0;
+    }
+
+
+
+    /*  свечи  */
+
+
+    .candles-demo .candle {
+        position: absolute;
+        bottom: 0;
+        background: #fff;
+        border: 4px solid var(--line);
+        border-radius: 3px;
+        transform-origin: 50% 100%;
+    }
+
+
+
+    .candles-demo .short {
+        left: -129px;
+        width: 108px;
+        height: 139px;
+        box-shadow: inset -5px 0 0 #f4d0d0;
+        animation: cd-short-body var(--dur) infinite;
+    }
+
+
+
+    .candles-demo .tall {
+        left: 38px;
+        width: 92px;
+        height: 229px;
+        box-shadow: inset -5px 0 0 #cfe0ff;
+        animation: cd-tall-body var(--dur) infinite;
+    }
+
+
+
+    /* фитиль */
+
+
+    .candles-demo .wick {
+        position: absolute;
+        left: 50%;
+        bottom: 100%;
+        width: 4px;
+        height: 14px;
+        margin-left: -2px;
+        background: var(--line);
+        transform-origin: 50% 100%;
+    }
+
+
+    .candles-demo .short .wick {
+        animation: cd-wick var(--dur) infinite;
+    }
+
+
+    .candles-demo .tall .wick {
+        height: 28px;
+    }
+
+
+
+    /* пламя */
+
+
+    .candles-demo .flame {
+        position: absolute;
+        left: 50%;
+        bottom: calc(100% + 10px);
+        width: 38px;
+        height: 46px;
+        margin-left: -19px;
+        background: var(--flame);
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        transform-origin: 50% 100%;
+        animation: cd-flame var(--dur) infinite;
+    }
+
+
+
+    /*  глаза и рот  */
+
+
+    .candles-demo .eye {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+    }
+
+
+    .candles-demo .short .eye {
+        top: 36px;
+    }
+
+
+    .candles-demo .tall .eye {
+        top: 12px;
+    }
+
+
+    .candles-demo .short .eye.l {
+        left: 22px;
+    }
+
+    .candles-demo .short .eye.r {
+        right: 22px;
+    }
+
+
+    .candles-demo .tall .eye.l {
+        left: 17px;
+    }
+
+    .candles-demo .tall .eye.r {
+        right: 17px;
+    }
+
+
+
+    .candles-demo .dot {
+        position: absolute;
+        inset: 2px;
+        background: var(--line);
+        border-radius: 50%;
+    }
+
+
+    .candles-demo .chev {
+        position: absolute;
+        top: 1px;
+        width: 12px;
+        height: 12px;
+        opacity: 0;
+    }
+
+
+        .candles-demo .chev.right {
+            left: -2px;
+            border-top: 4px solid var(--line);
+            border-right: 4px solid var(--line);
+            transform: rotate(45deg);
+        }
+
+
+        .candles-demo .chev.left {
+            left: 4px;
+            border-bottom: 4px solid var(--line);
+            border-left: 4px solid var(--line);
+            transform: rotate(45deg);
+        }
+
+
+
+    .candles-demo .short .dot {
+        animation: cd-eye-open var(--dur) infinite;
+    }
+
+
+    .candles-demo .short .chev {
+        animation: cd-eye-squint var(--dur) infinite;
+    }
+
+
+
+    .candles-demo .mouth {
+        position: absolute;
+        left: 24px;
+        top: 50px;
+        width: 0;
+        height: 0;
+        background: var(--line);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        animation: cd-mouth var(--dur) infinite;
+    }
+
+
+
+    /*  волна и дым  */
+
+
+    .candles-demo .ring {
+        position: absolute;
+        left: -75px;
+        bottom: 227px;
+        width: 360px;
+        height: 360px;
+        margin: -180px 0 0 -180px; /* центр кольца в (left, bottom) */
+        transform: translate(0, 50%);
+        border: 6px solid #bbb;
+        border-radius: 50%;
+        opacity: 0;
+        animation: cd-ring var(--dur) infinite;
+    }
+
+
+
+    .candles-demo .smoke {
+        position: absolute;
+        background: #aaa;
+        border-radius: 10px;
+        opacity: 0;
+        transform: translate(-50%, 50%);
+        animation: cd-smoke var(--dur) infinite;
+    }
+
+
+
+/* анимации (цикл 3 с) 
+   30%  высокая вдыхает      43%  выдох + свет гаснет
+   47%  низкая зажмурилась   70%  свет включился, пламя вернулось
+   90%  свечка остыла                                           */
+
+
+
+@keyframes cd-bg {
+    0%, 35% {
+        background: #fff;
+    }
+
+    38% {
+        background: #d9d9d9;
+    }
+
+    43%, 68% {
+        background: #000;
+    }
+
+    70%, 100% {
+        background: #fff;
+    }
+}
+
+
+
+@keyframes cd-tall-body {
+    0%, 30% {
+        height: 229px;
+    }
+
+    36%, 41% {
+        height: 252px;
+    }
+
+    44% {
+        height: 212px;
+    }
+
+    50%, 100% {
+        height: 229px;
+    }
+}
+
+
+
+@keyframes cd-mouth {
+    0%, 30% {
+        width: 0;
+        height: 0;
+    }
+
+    35% {
+        width: 14px;
+        height: 14px;
+    }
+
+    41% {
+        width: 28px;
+        height: 28px;
+    }
+
+    44% {
+        width: 7px;
+        height: 7px;
+    }
+
+    47%, 100% {
+        width: 0;
+        height: 0;
+    }
+}
+
+
+
+@keyframes cd-ring {
+    0%, 38% {
+        opacity: 0;
+        transform: translate(0, 50%) scale(.2);
+    }
+
+    39% {
+        opacity: 1;
+    }
+
+    45% {
+        opacity: .9;
+        transform: translate(0, 50%) scale(1);
+    }
+
+    50%, 100% {
+        opacity: 0;
+        transform: translate(0, 50%) scale(1.1);
+    }
+}
+
+
+
+@keyframes cd-flame {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    15% {
+        transform: scale(1.04, .96);
+    }
+
+    30% {
+        transform: scale(.97, 1.04);
+    }
+
+    42% {
+        transform: scale(1, 1);
+    }
+
+    43%, 69.9% {
+        transform: scale(0);
+    }
+
+    70% {
+        transform: scale(0);
+    }
+
+    74% {
+        transform: scale(1.25, 1.25);
+    }
+
+    80%, 100% {
+        transform: scale(1, 1);
+    }
+}
+
+
+
+@keyframes cd-wick {
+    0%, 42% {
+        transform: rotate(0);
+    }
+
+    45%, 69% {
+        transform: rotate(12deg);
+    }
+
+    72%, 100% {
+        transform: rotate(0);
+    }
+}
+
+
+
+@keyframes cd-eye-open {
+    0%, 46.9% {
+        opacity: 1;
+    }
+
+    47%, 69.9% {
+        opacity: 0;
+    }
+
+    70%, 100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes cd-eye-squint {
+    0%, 46.9% {
+        opacity: 0;
+    }
+
+    47%, 69.9% {
+        opacity: 1;
+    }
+
+    70%, 100% {
+        opacity: 0;
+    }
+}
+
+
+
+@keyframes cd-short-body {
+    0%, 43% {
+        transform: scale(1, 1);
+        background: #fff;
+    }
+
+    47% {
+        transform: scale(1, 1);
+        background: #fff;
+    }
+
+    53% {
+        transform: scale(1.04, .96);
+        background: #ffe4e0;
+    }
+
+    62% {
+        transform: scale(1.12, .88);
+        background: #ffa393;
+    }
+
+    69.5% {
+        transform: scale(1.2, .84);
+        background: var(--hot);
+    }
+
+    70% {
+        transform: scale(1, 1);
+        background: #ff8f78;
+    }
+
+    90%, 100% {
+        transform: scale(1, 1);
+        background: #fff;
+    }
+}
+
+
+
+@keyframes cd-smoke {
+    0%, 43% {
+        opacity: 0;
+        left: -146px;
+        bottom: 172px;
+        width: 64px;
+        height: 5px;
+    }
+
+    44% {
+        opacity: 1;
+        left: -146px;
+        bottom: 172px;
+        width: 64px;
+        height: 5px;
+    }
+
+    47% {
+        left: -135px;
+        bottom: 185px;
+        width: 20px;
+        height: 5px;
+    }
+
+    50% {
+        left: -81px;
+        bottom: 214px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+    }
+
+    53% {
+        left: -91px;
+        bottom: 239px;
+        width: 13px;
+        height: 13px;
+    }
+
+    56% {
+        opacity: 1;
+        left: -100px;
+        bottom: 266px;
+        width: 5px;
+        height: 5px;
+    }
+
+    58%, 100% {
+        opacity: 0;
+        left: -100px;
+        bottom: 270px;
+        width: 3px;
+        height: 3px;
+    }
+}
+
+
+
+/* Сцена ограничена карточкой, а не занимает весь экран. */
+.candles-demo .stage {
+    height: 480px;
+    min-height: 0;
+}
+
+
+
+
+/* =====================================
+   АНИМАЦИЯ №3 — КОНВЕРТ С ПИСЬМОМ
+   ===================================== */
+
+.envelope-page {
+    margin: 0;
+    min-height: 100vh;
+    background: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.envelope-main {
+    text-align: center;
+    padding: 30px 15px;
+}
+
+    .envelope-main h1 {
+        font-size: 26px;
+        margin-bottom: 15px;
+    }
+
+    .envelope-main > p {
+        color: #bbb;
+        margin-bottom: 30px;
+    }
+
+/* Сцена */
+
+.envelope-scene {
+    position: relative;
+    width: min(500px, 100%);
+    height: 390px;
+    margin: 0 auto;
+    background: #30333d;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 900px;
+}
+
+/* Конверт */
+
+.mail-envelope {
+    position: relative;
+    width: 280px;
+    height: 175px;
+    margin-top: 45px;
+    cursor: pointer;
+    outline-offset: 8px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+/* Задняя стенка */
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: #cc4944;
+    z-index: 1;
+}
+
+/* Письмо */
+
+.envelope-letter {
+    position: absolute;
+    left: 10%;
+    top: 15px;
+    width: 80%;
+    height: 160px;
+    background: #fff;
+    z-index: 2;
+    overflow: hidden;
+    box-shadow: 0 2px 6px #0002;
+    transform: translateY(0);
+    transition: transform 0.75s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
+}
+
+/* Красные полоски письма */
+
+.letter-stripes {
+    width: 100%;
+    height: 13px;
+    background: repeating-linear-gradient( 135deg, #c95459 0px, #c95459 10px, white 10px, white 20px );
+}
+
+/* Текст на письме */
+
+.letter-content {
+    padding: 15px 12px;
+}
+
+.letter-line {
+    display: block;
+    height: 9px;
+    margin-bottom: 10px;
+    background: #cb6166;
+}
+
+.line-long {
+    width: 75%;
+}
+
+.line-medium {
+    width: 55%;
+}
+
+.line-short {
+    width: 35%;
+}
+
+/* Печать */
+
+.letter-stamp {
+    position: absolute;
+    right: 15px;
+    bottom: 18px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #edc9cc;
+}
+
+/* Верхний треугольный клапан */
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 145px;
+    background: #c94742;
+    clip-path: polygon( 0 0, 100% 0, 50% 100% );
+    transform-origin: top center;
+    transform: rotateX(0deg);
+    backface-visibility: visible;
+    z-index: 4;
+    transition: transform 0.55s ease-in-out, z-index 0s linear 0.55s;
+}
+
+/* Передняя часть конверта */
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+    background: #ea5850;
+    clip-path: polygon( 0 0, 50% 56%, 100% 0, 100% 100%, 0 100% );
+    z-index: 3;
+}
+
+/* Тень */
+
+.envelope-shadow {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    width: 290px;
+    height: 17px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.32);
+    filter: blur(8px);
+    transform: translateX(-50%);
+    transition: width 0.5s ease;
+}
+
+/* =====================================
+   АНИМАЦИЯ ПРИ НАВЕДЕНИИ
+   ===================================== */
+
+/* Открытие клапана */
+
+.mail-envelope:hover .envelope-flap,
+.mail-envelope:focus .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+    transition: transform 0.55s ease-in-out, z-index 0s linear 0.28s;
+}
+
+/* Появление письма */
+
+.mail-envelope:hover .envelope-letter,
+.mail-envelope:focus .envelope-letter {
+    transform: translateY(-115px);
+    transition: transform 0.75s cubic-bezier(0.25, 0.8, 0.25, 1) 0.4s;
+}
+
+/* Небольшой подъём конверта */
+
+.mail-envelope:hover,
+.mail-envelope:focus {
+    transform: translateY(-8px);
+}
+
+/* Адаптация */
+
+@media (max-width: 480px) {
+    .envelope-scene {
+        height: 340px;
+    }
+
+    .mail-envelope {
+        scale: 0.85;
+    }
+
+    .envelope-shadow {
+        width: 230px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mail-envelope,
+    .envelope-letter,
+    .envelope-flap,
+    .envelope-shadow {
+        transition-duration: 0.01ms;
+        transition-delay: 0s;
+    }
+}
+
+/* =====================================
+   АНИМАЦИЯ №17 — СНЕЖНЫЙ ШАР
+   ===================================== */
+
+.snowglobe-page {
+    background: #111;
+    color: white;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.snowglobe-main {
+    padding: 30px 15px;
+    text-align: center;
+}
+
+    .snowglobe-main h1 {
+        font-size: 26px;
+        margin-bottom: 30px;
+    }
+
+.snowglobe-scene {
+    width: min(720px, 100%);
+    height: 520px;
+    margin: 0 auto;
+    background: #2b2260;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.snowglobe {
+    position: relative;
+    width: 430px;
+    height: 430px;
+}
+
+/* шар */
+
+.globe-glass {
+    position: absolute;
+    top: 0;
+    left: 18px;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: rgba(145, 148, 195, 0.45);
+    z-index: 2;
+}
+
+.globe-inner-bg {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+}
+
+.globe-highlight {
+    position: absolute;
+    top: 28px;
+    left: 85px;
+    width: 14px;
+    height: 125px;
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 50px;
+    transform: rotate(30deg);
+    z-index: 10;
+}
+
+/* дом */
+
+.house {
+    position: absolute;
+    left: 132px;
+    bottom: 76px;
+    width: 150px;
+    height: 145px;
+    z-index: 5;
+}
+
+.roof-main {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 95px;
+    height: 54px;
+    background: #d54545;
+    transform: skewX(-30deg);
+    border-bottom: 4px solid #893737;
+}
+
+.roof-side {
+    position: absolute;
+    top: 16px;
+    right: 0;
+    width: 42px;
+    height: 58px;
+    background: #a74a32;
+    clip-path: polygon(0 0, 78% 0, 100% 100%, 24% 100%);
+    border-bottom: 4px solid #733325;
+}
+
+.roof-snow {
+    position: absolute;
+    height: 7px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    top: 10px;
+}
+
+.snow-a {
+    left: 10px;
+    width: 26px;
+}
+
+.snow-b {
+    left: 46px;
+    width: 22px;
+}
+
+.snow-c {
+    left: 76px;
+    width: 18px;
+}
+
+.snow-d {
+    left: 33px;
+    top: 28px;
+    width: 38px;
+}
+
+.chimney {
+    position: absolute;
+    top: -6px;
+    left: 84px;
+    width: 18px;
+    height: 30px;
+    background: #d88947;
+    z-index: 2;
+}
+
+.chimney-top {
+    position: absolute;
+    top: -8px;
+    left: -6px;
+    width: 30px;
+    height: 10px;
+    background: #e39a57;
+}
+
+.house-body {
+    position: absolute;
+    left: 18px;
+    bottom: 0;
+    width: 108px;
+    height: 84px;
+    background: #e5924c;
+}
+
+.house-side {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 30px;
+    height: 78px;
+    background: #c06d47;
+}
+
+.window,
+.window-small {
+    position: absolute;
+    background: #bcebf1;
+    border: 3px solid #fff;
+    box-shadow: inset -6px -6px 0 rgba(0, 0, 0, 0.08);
+}
+
+    .window::before,
+    .window-small::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background: #fff;
+        transform: translateX(-50%);
+    }
+
+    .window::after,
+    .window-small::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        transform: translateY(-50%);
+    }
+
+.window-left {
+    left: 20px;
+    bottom: 20px;
+    width: 28px;
+    height: 28px;
+}
+
+.window-center {
+    left: 54px;
+    bottom: 20px;
+    width: 28px;
+    height: 28px;
+}
+
+.window-small {
+    right: 6px;
+    top: 18px;
+    width: 16px;
+    height: 16px;
+}
+
+.door {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    width: 18px;
+    height: 42px;
+    background: #9a4e60;
+}
+
+.door-knob {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    width: 4px;
+    height: 4px;
+    background: #f2d089;
+    border-radius: 50%;
+}
+
+/* деревья */
+
+.tree {
+    position: absolute;
+    bottom: 82px;
+    width: 80px;
+    height: 130px;
+    z-index: 4;
+}
+
+.tree-back {
+    left: 92px;
+    transform: scale(0.9);
+}
+
+.tree-front {
+    left: 72px;
+    transform: scale(1.06);
+}
+
+.tree-part {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 26px solid transparent;
+    border-right: 26px solid transparent;
+}
+
+.tree-part-1 {
+    top: 0;
+    border-bottom: 56px solid #8b9e2f;
+}
+
+.tree-part-2 {
+    top: 30px;
+    border-left-width: 31px;
+    border-right-width: 31px;
+    border-bottom: 64px solid #97aa37;
+}
+
+.tree-part-3 {
+    top: 66px;
+    border-left-width: 36px;
+    border-right-width: 36px;
+    border-bottom: 72px solid #7f912b;
+}
+
+/* забор */
+
+.fence {
+    position: absolute;
+    left: 116px;
+    bottom: 94px;
+    display: flex;
+    gap: 6px;
+    z-index: 6;
+}
+
+    .fence span {
+        width: 8px;
+        height: 28px;
+        background: #a61012;
+        position: relative;
+    }
+
+        .fence span::before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: 0;
+            width: 8px;
+            height: 5px;
+            background: #a61012;
+            border-radius: 4px 4px 0 0;
+        }
+
+    .fence::before,
+    .fence::after {
+        content: "";
+        position: absolute;
+        left: -2px;
+        width: 46px;
+        height: 5px;
+        background: #a61012;
+    }
+
+    .fence::before {
+        top: 8px;
+    }
+
+    .fence::after {
+        top: 18px;
+    }
+
+/* снег снизу */
+
+.snow-platform {
+    position: absolute;
+    left: 95px;
+    bottom: 46px;
+    width: 180px;
+    height: 24px;
+    background: #f0f0f0;
+    border-radius: 8px 8px 0 0;
+    z-index: 6;
+}
+
+.snow-bump {
+    position: absolute;
+    bottom: 12px;
+    background: #f0f0f0;
+    border-radius: 50%;
+}
+
+.bump-1 {
+    left: 86px;
+    width: 32px;
+    height: 22px;
+}
+
+.bump-2 {
+    left: 108px;
+    width: 18px;
+    height: 14px;
+}
+
+/* подставка */
+
+.globe-stand-top {
+    position: absolute;
+    top: 338px;
+    left: 58px;
+    width: 280px;
+    height: 22px;
+    background: #e24142;
+    border-radius: 14px;
+    z-index: 7;
+}
+
+.globe-base {
+    position: absolute;
+    top: 356px;
+    left: 70px;
+    width: 255px;
+    height: 72px;
+    background: #c91f2d;
+    z-index: 6;
+}
+
+.globe-base-bottom {
+    position: absolute;
+    top: 420px;
+    left: 60px;
+    width: 275px;
+    height: 24px;
+    background: #df4340;
+    border-radius: 14px;
+    z-index: 7;
+}
+
+/* снежинки */
+
+.snowflakes {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 9;
+    pointer-events: none;
+}
+
+    .snowflakes span {
+        position: absolute;
+        top: -12px;
+        left: var(--x);
+        width: var(--size);
+        height: var(--size);
+        background: #fff;
+        border-radius: 50%;
+        opacity: 0;
+        animation: snow-fall var(--duration) linear infinite;
+        animation-delay: var(--delay);
+    }
+
+@keyframes snow-fall {
+    0% {
+        transform: translate(0, -10px);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    35% {
+        transform: translate(12px, 110px);
+        opacity: 1;
+    }
+
+    65% {
+        transform: translate(-10px, 215px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(8px, 360px);
+        opacity: 0;
+    }
+}
+
+.snowglobe-hint {
+    color: #bbb;
+    margin: 25px auto;
+}
+
+/* адаптация */
+
+@media (max-width: 480px) {
+    .snowglobe-scene {
+        height: 430px;
+    }
+
+    .snowglobe {
+        transform: scale(0.72);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .snowflakes span {
+        animation: none;
+        opacity: 0.85;
+    }
+}
+
+
+
+/* =====================================
+   ГЛАВНАЯ СТРАНИЦА LAB3
+   ===================================== */
+
+.lab3-home {
+    min-height: 100vh;
+    background: #f3f5f9;
+    color: #202b3a;
+    font-family: Arial, sans-serif;
+}
+
+.lab3-header {
+    background: #192d49;
+    color: white;
+    padding: 55px 20px;
+    text-align: center;
+}
+
+    .lab3-header h1 {
+        margin: 0 0 15px;
+        font-size: 36px;
+    }
+
+    .lab3-header p {
+        font-size: 18px;
+        color: #c6d2e1;
+    }
+
+.lab3-container {
+    width: min(1100px, 92%);
+    margin: 45px auto 70px;
+}
+
+    .lab3-container h2 {
+        margin-bottom: 25px;
+    }
+
+.lab3-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.lab3-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e0e5ec;
+    box-shadow: 0 3px 12px #172b4410;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .lab3-card:hover {
+        transform: translateY(-7px);
+        box-shadow: 0 12px 25px #172b4420;
+    }
+
+.lab3-card-icon {
+    font-size: 46px;
+    margin-bottom: 15px;
+}
+
+.lab3-card h3 {
+    margin: 0 0 12px;
+    color: #192d49;
+}
+
+.lab3-card p {
+    line-height: 1.6;
+    color: #566477;
+    min-height: 50px;
+}
+
+.lab3-card a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 20px;
+    background: #192d49;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+    .lab3-card a:hover {
+        background: #315b88;
+    }
+
+.lab3-footer {
+    padding: 25px;
+    background: #192d49;
+    color: white;
+    text-align: center;
+}
+
+/* Адаптация главной страницы */
+
+@media (max-width: 650px) {
+    .lab3-header h1 {
+        font-size: 27px;
+    }
+
+    .lab3-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lab3-card {
+        padding: 25px;
+    }
+}

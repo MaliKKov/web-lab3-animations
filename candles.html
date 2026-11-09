@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анимация №2 — Свечи</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="candles-page">
+    <main class="candles-main">
+        <h1>Анимация №2 — Свечи</h1>
+        <div class="candles-demo" role="img" aria-label="Высокая свеча задувает низкую, которая краснеет и вновь загорается">
+            <div class="stage">
+                <!-- scene: точка отсчёта — центр сцены на линии земли -->
+                <div class="scene">
+            
+                  <!-- низкая свечка (та, что горит) -->
+                  <div class="candle short">
+                    <div class="wick"></div>
+                    <div class="flame"></div>
+                    <div class="eye l"><i class="dot"></i><i class="chev right"></i></div>
+                    <div class="eye r"><i class="dot"></i><i class="chev left"></i></div>
+                  </div>
+            
+                  <!-- высокая свечка (та, что дует) -->
+                  <div class="candle tall">
+                    <div class="wick"></div>
+                    <div class="eye l"><i class="dot"></i></div>
+                    <div class="eye r"><i class="dot"></i></div>
+                    <div class="mouth"></div>
+                  </div>
+            
+                  <div class="ring"></div>
+                  <div class="smoke"></div>
+                </div>
+            
+                <div class="ground"></div>
+              </div>
+        </div>
+        <p class="candles-note">Анимация повторяется автоматически каждые 3 секунды.</p>
+        <nav class="animation-nav" aria-label="Переход к другим анимациям">
+            <a href="cat.html">← Котик</a>
+            <a href="index.html">Все анимации</a>
+            <a href="envelope.html">Конверт →</a>
+        </nav>
+    </main>
+</body>
+</html>

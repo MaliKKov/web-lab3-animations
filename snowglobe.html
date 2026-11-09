@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анимация №17 — Снежный шар</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="snowglobe-page">
+
+    <main class="snowglobe-main">
+        <h1>Анимация №17 — Снежный шар</h1>
+
+        <div class="snowglobe-scene">
+            <div class="snowglobe" role="img"
+                 aria-label="Снежный шар с домиком, деревьями и движущимися снежинками">
+
+                <div class="globe-glass">
+                    <div class="globe-highlight"></div>
+
+                    <!-- фон внутри шара -->
+                    <div class="globe-inner-bg"></div>
+
+                    <!-- деревья -->
+                    <div class="tree tree-back">
+                        <div class="tree-part tree-part-1"></div>
+                        <div class="tree-part tree-part-2"></div>
+                        <div class="tree-part tree-part-3"></div>
+                    </div>
+
+                    <div class="tree tree-front">
+                        <div class="tree-part tree-part-1"></div>
+                        <div class="tree-part tree-part-2"></div>
+                        <div class="tree-part tree-part-3"></div>
+                    </div>
+
+                    <!-- дом -->
+                    <div class="house">
+                        <div class="chimney">
+                            <div class="chimney-top"></div>
+                        </div>
+
+                        <div class="roof-main">
+                            <div class="roof-snow snow-a"></div>
+                            <div class="roof-snow snow-b"></div>
+                            <div class="roof-snow snow-c"></div>
+                            <div class="roof-snow snow-d"></div>
+                        </div>
+
+                        <div class="roof-side"></div>
+
+                        <div class="house-body">
+                            <div class="window window-left"></div>
+                            <div class="window window-center"></div>
+                            <div class="door"></div>
+                            <div class="door-knob"></div>
+                        </div>
+
+                        <div class="house-side">
+                            <div class="window-small"></div>
+                        </div>
+                    </div>
+
+                    <!-- забор -->
+                    <div class="fence">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+
+                    <!-- снег внизу -->
+                    <div class="snow-platform">
+                        <div class="snow-bump bump-1"></div>
+                        <div class="snow-bump bump-2"></div>
+                    </div>
+
+                    <!-- снежинки -->
+                    <div class="snowflakes" aria-hidden="true">
+                        <span style="--x: 6%; --delay: -1s; --duration: 8s; --size: 4px;"></span>
+                        <span style="--x: 12%; --delay: -4s; --duration: 7s; --size: 3px;"></span>
+                        <span style="--x: 18%; --delay: -2s; --duration: 9s; --size: 5px;"></span>
+                        <span style="--x: 24%; --delay: -5s; --duration: 6s; --size: 3px;"></span>
+                        <span style="--x: 31%; --delay: -3s; --duration: 8s; --size: 4px;"></span>
+                        <span style="--x: 38%; --delay: -7s; --duration: 7s; --size: 5px;"></span>
+                        <span style="--x: 45%; --delay: -2s; --duration: 10s; --size: 3px;"></span>
+                        <span style="--x: 52%; --delay: -6s; --duration: 8s; --size: 4px;"></span>
+                        <span style="--x: 59%; --delay: -1s; --duration: 6s; --size: 5px;"></span>
+                        <span style="--x: 66%; --delay: -5s; --duration: 9s; --size: 3px;"></span>
+                        <span style="--x: 73%; --delay: -3s; --duration: 7s; --size: 4px;"></span>
+                        <span style="--x: 80%; --delay: -6s; --duration: 8s; --size: 5px;"></span>
+                        <span style="--x: 87%; --delay: -2s; --duration: 9s; --size: 3px;"></span>
+                        <span style="--x: 93%; --delay: -4s; --duration: 7s; --size: 4px;"></span>
+
+                        <span style="--x: 9%; --delay: -8s; --duration: 9s; --size: 4px;"></span>
+                        <span style="--x: 20%; --delay: -6s; --duration: 10s; --size: 3px;"></span>
+                        <span style="--x: 34%; --delay: -4s; --duration: 8s; --size: 5px;"></span>
+                        <span style="--x: 49%; --delay: -7s; --duration: 9s; --size: 3px;"></span>
+                        <span style="--x: 63%; --delay: -5s; --duration: 10s; --size: 4px;"></span>
+                        <span style="--x: 77%; --delay: -8s; --duration: 8s; --size: 3px;"></span>
+                        <span style="--x: 90%; --delay: -7s; --duration: 9s; --size: 5px;"></span>
+                    </div>
+                </div>
+
+                <div class="globe-stand-top"></div>
+                <div class="globe-base"></div>
+                <div class="globe-base-bottom"></div>
+            </div>
+        </div>
+
+        <p class="snowglobe-hint">
+            Снежинки анимированы внутри шара.
+        </p>
+
+        <nav class="animation-nav">
+            <a href="envelope.html">← Конверт</a>
+            <a href="index.html">Все анимации</a>
+        </nav>
+    </main>
+
+</body>
+</html>
